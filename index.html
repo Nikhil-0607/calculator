@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+      }
+      .container {
+        background: #e07272;
+        height: auto;
+        width: 50%;
+        border: dashed 5px white;
+        border-radius: 30px;
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .search_form {
+        border: solid 5px grey;
+        height: 300px;
+        width: 80%;
+      }
+      .search_conatiner {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .searchBar {
+        width: 80%;
+        height: 30px;
+        border-radius: 5px;
+      }
+      .buttons_conatiner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+      }
+      .button_color {
+        color: red;
+      }
+      .listener {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+        background-color: #ccc;
+      }
+      button{
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search_form">
+        <div class="search_conatiner">
+          <input type="text" class="searchBar" />
+        </div>
+
+        <div class="buttons_conatiner">
+          <div id="squareOne" class="listener" >1</div>
+          <div id="squareTwo" class="listener">2</div>
+          <div id="squareThree" class="listener">3</div>
+        </div>
+
+        <button class="bag-button" onclick=" categoryQuantity+=1; document.querySelector('#cart-summary').innerText = `your Bag has ${categoryQuantity} items`" >Add to cart</button>
+        <button class="wish-button" onclick=" categoryQuantity-=1; document.querySelector('#cart-summary').innerText = `your Bag has ${categoryQuantity} items`"> move to wislist</button>
+        <button class="bag-button" onclick="categoryQuantity+=1; document.querySelector('#cart-summary').innerText = `your Bag has ${categoryQuantity} items`">Add 1+1 sale item</button>
+
+        <h1 id="cart-summary"></h1>
+      </div>
+    </div>
+
+    <script>
+
+document.getElementById('squareOne').addEventListener('click', changeColor);
+
+    function changeColor() {
+    this.style.backgroundColor = "red";
+    return false;
+}
+
+document.getElementById('squareTwo').addEventListener('click',changeColor1);
+
+    function changeColor1(){
+    this.style.backgroundColor = "blue";
+    
+}
+
+document.getElementById('squareThree').addEventListener('click',changeColor2);
+function changeColor2(){
+    this.style.backgroundColor= "yellow";
+    
+}
+
+
+
+let categoryQuantity=0;
+// document.querySelector('#cart-summary').innerText = `your Bag has ${categoryQuantity} items`
+
+// document.querySelector('.bag-button').addEventListener('click',addToCart);
+
+// function addToCart(){
+//     categoryQuantity += 1;
+// }
+
+
+    </script>
+  </body>
+</html>
