@@ -31,21 +31,15 @@
 
 
     <script>
-        let scoreStr = localStorage.getItem('Score');
-        let score;
-        if(scoreStr !== undefined){
-            score = JSON.parse(scoreStr);
-        }else{
-            score = {
-            win : 0,
+            let scoreStr = localStorage.getItem('score');
+            let score = JSON.parse(scoreStr) || { win : 0,
             lost : 0,
-            tie : 0,
+            tie : 0,}
+           
+            score.displayScore  = function(){
+                return `win number is: ${score.win}, Lost: ${score.lost}, Tie: ${score.tie}`;
             }
-        }
-        score.displayScore = function(){
-            return `win number is: ${score.win}, Lost: ${score.lost}, Tie: ${score.tie}`;
         
-        };
 
         function randomNumberGeneration() {
             let randomNumber = Math.random() * 3;
@@ -62,7 +56,7 @@
                     return 'user won';}
                 else if (computerChoice === 'Bat') {
                     score.tie++;
-                     `its a tie`;}
+                     return `its a tie`;}
                 else if (computerChoice === 'stump') {
                     score.lost++;
                     return 'computer won';}
@@ -70,7 +64,7 @@
             else if (userChoice === 'Ball') {
                 if (computerChoice === 'Ball') {
                     score.tie++;
-                     'it is tie';}
+                     return 'it is tie';}
                 else if (computerChoice === 'Bat') {
                     score.lost++;
                     return `computer has won`;}
@@ -87,7 +81,7 @@
                     return `user has won`;}
                 else if (computerChoice === 'stump') {
                     score.tie++;
-                     'its a tie';}
+                     return 'its a tie';}
             }
 
         }
